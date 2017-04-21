@@ -15,11 +15,14 @@ class ExampleApp extends React.Component {
   }
 
   render() {
+    console.log(this.state.size[0])
+
     return <app>
       <menu>
         <submenu label="Electron">
           <about />
           <sep />
+          <forcereload />
           <quit />
         </submenu>
         <submenu label="Custom Menu">
@@ -36,7 +39,11 @@ class ExampleApp extends React.Component {
         onReadyToShow={() => this.setState({ show: true })}
         onResize={size => this.setState({ size })}
         onMoved={position => this.setState({ position })}
-      />
+      >
+        <touchbar>
+          <touchbarbutton label="Foo the bars" onClick={() => this.setState({ size: [300, 300] })} />
+        </touchbar>
+      </window>
     </app>
   }
 }

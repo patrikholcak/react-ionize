@@ -12,6 +12,9 @@ import {
   isRoleMenuItemType,
 } from './MenuItemElement';
 
+import TouchBarElement from './TouchBarElement';
+import TouchBarButton from './TouchBarItemElement';
+
 export {
   BaseElement,
   AppElement,
@@ -34,6 +37,12 @@ export function createElectronInstance(
     }
     case 'window': {
       return new WindowElement(props, container);
+    }
+    case 'touchbar': {
+      return new TouchBarElement(props, container);
+    }
+    case 'touchbarbutton': {
+      return new TouchBarButton(props, container);
     }
     case 'menu': {
       return new MenuElement(props, container);

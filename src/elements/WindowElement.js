@@ -18,7 +18,7 @@ import { getCurrentFiberStackAddendum } from 'react-dom/lib/ReactDebugCurrentFib
  *
  * NOTE: ABOUT CONTROLLED ATTRIBUTES
  * Controlled attributes behave in similar fashion to the <input> tag in React
- * DOM. Specifically, if you include a prop which specifies the value of a 
+ * DOM. Specifically, if you include a prop which specifies the value of a
  * controlled attribute, you must also include an event handler which updates
  * the value of that prop.
  *
@@ -72,7 +72,7 @@ import { getCurrentFiberStackAddendum } from 'react-dom/lib/ReactDebugCurrentFib
  * onReadyToShow
  * onShow
  * onHide
- * 
+ *
  * closable
  * onClose
  * onClosed (???)
@@ -226,7 +226,7 @@ export default class WindowElement extends BaseElement {
           }
           break;
         }
-        case 'size': 
+        case 'size':
         case 'defaultSize':
         case 'onResize': {
           // TODO: figure out if we can avoid calling this multiple times
@@ -262,9 +262,9 @@ export default class WindowElement extends BaseElement {
   appendChildBeforeMount(
     child         : (BaseElement | TextElement)
   ): void {
-    if (child instanceof WindowElement) {
+    // if (child instanceof WindowElement) {
       child.parentWindow = this.window;
-    }
+    // }
   }
 
   appendChild(
