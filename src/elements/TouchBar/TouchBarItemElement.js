@@ -26,12 +26,6 @@ export default class TouchBarItemElement extends BaseElement {
     return this.element;
   };
 
-  getSupportedProps(): { [string]: boolean } {
-    return {
-      escapeItem: true
-    };
-  }
-
   finalizeBeforeMount(
     type          : string,
     props         : Object,
