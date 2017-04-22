@@ -15,6 +15,14 @@ export default class TouchBarPopoverElement extends TouchBarBaseGroup {
     return this.element;
   }
 
+  getSupportedProps(): { [string]: boolean } {
+    return {
+      label: true,
+      icon: true,
+      showCloseButton: true
+    };
+  }
+
   commitMount(
     newProps      : Object
   ) {
