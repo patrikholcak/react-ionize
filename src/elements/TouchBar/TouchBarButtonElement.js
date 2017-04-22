@@ -1,12 +1,12 @@
 // @flow
 
 import { TouchBar } from 'electron';
-import TouchBarItemElement from './TouchBarItemElement';
+import TouchBarBaseItem from './TouchBarBaseItem';
 import type IonizeContainer from '../../IonizeContainer';
 
 const { TouchBarButton } = TouchBar;
 
-export default class TouchBarButtonElement extends TouchBarItemElement {
+export default class TouchBarButtonElement extends TouchBarBaseItem {
   constructor(
     props         : Object,
     rootContainer : IonizeContainer,

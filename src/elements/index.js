@@ -17,7 +17,9 @@ import TouchBarElement from './TouchBar/TouchBarElement';
 import TouchBarButton from './TouchBar/TouchBarButtonElement';
 import TouchBarLabel from './TouchBar/TouchBarLabelElement';
 import TouchBarSpacer from './TouchBar/TouchBarSpacerElement';
-import TouchBarColorPicker from './TouchBar/TouchBarColorPicker';
+import TouchBarColorPicker from './TouchBar/TouchBarColorPickerElement';
+import TouchBarGroup from './TouchBar/TouchBarGroupElement';
+import TouchBarPopover from './TouchBar/TouchBarPopoverElement';
 
 export {
   BaseElement,
@@ -62,6 +64,12 @@ export function createElectronInstance(
     }
     case 'touchBarColorPicker': {
       return new TouchBarColorPicker(props, container);
+    }
+    case 'touchBarGroup': {
+      return new TouchBarGroup(props, container);
+    }
+    case 'touchBarPopover': {
+      return new TouchBarPopover(props, container);
     }
     case 'touchBarLabel': {
       return new TouchBarLabel(props, container);

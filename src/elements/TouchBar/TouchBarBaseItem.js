@@ -7,7 +7,7 @@ import EventEmitter from 'events';
 
 import type { TouchBarItem } from 'electron';
 
-export default class TouchBarItemElement extends BaseElement {
+export default class TouchBarBaseItem extends BaseElement {
   element: TouchBarItem;
   attachedHandlers: { [string]: Function };
   emitter: EventEmitter;
@@ -61,45 +61,28 @@ export default class TouchBarItemElement extends BaseElement {
     oldProps      : Object,
     newProps      : Object
   ): void {
-    for (let i = 0; i < updatePayload.length; i += 2) {
-      const supportedProps = this.getSupportedProps();
-      const propKey = ((updatePayload[i]: any): string);
-      let propVal = updatePayload[i+1];
+    const supportedProps = this.getSupportedProps();
 
-      switch (propKey) {
-        case 'onClick': {
-          if (!supportedProps.onClick) break;
+    for (const prop in newProps) {
+      switch (prop) {
+        case 'onClick':
+        case 'onChange':
+          if (!supportedProps[prop]) break;
 
-          propVal = ((propVal: any): Function);
+          const propVal = ((newProps[prop]: any): Function);
+
           configureWrappedEventHandler(
             this.emitter,
             this.attachedHandlers,
-            'onClick',
-            'click',
+            prop,
+            prop.replace(/^on/, '').toLowerCase(),
             propVal,
             (rawHandler) => rawHandler()
           );
-          break;
-        }
-        case 'onChange': {
-          if (!supportedProps.onChange) break;
-
-          propVal = ((propVal: any): Function);
-          configureWrappedEventHandler(
-            this.emitter,
-            this.attachedHandlers,
-            'onChange',
-            'change',
-            propVal,
-            (rawHandler) => rawHandler()
-          );
-          break;
-        }
-        default: {
+        default:
           // $FlowFixMe
-          this.element[propKey] = propVal
+          this.element[prop] = newProps[prop]
           break;
-        }
       }
     }
   }

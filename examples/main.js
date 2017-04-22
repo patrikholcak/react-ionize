@@ -46,12 +46,27 @@ class ExampleApp extends React.Component {
             backgroundColor={this.state.background}
             onClick={() => this.setState({ title: 'Clicked!' })}
           />
+
+          <touchBarPopover label="Popover">
+            <touchBarButton label="Btn 1" />
+            <touchBarButton label="Btn 2" />
+            <touchBarButton label="Btn 3" />
+          </touchBarPopover>
+
+          <touchBarGroup>
+            <touchBarButton label="Btn 1" />
+            <touchBarButton label="Btn 2" />
+            <touchBarButton label="Btn 3" />
+          </touchBarGroup>
+
           <touchBarColorPicker
             availableColors={["#fff", "#000"]}
             selectedColor="#000"
             onChange={(color: string) => console.log('Selected color:', color)}
           />
+
           <touchBarSpacer size="flexible" />
+
           <touchBarLabel
             label="Label"
             textColor="red"
