@@ -63,7 +63,7 @@ class ExampleApp extends React.Component {
 
           <touchBarLabel
             label="Label"
-            textColor="red"
+            textColor="#f00"
           />
 
           <touchBarColorPicker
