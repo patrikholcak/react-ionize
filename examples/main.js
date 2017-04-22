@@ -54,9 +54,14 @@ class ExampleApp extends React.Component {
           </touchBarPopover>
 
           <touchBarGroup>
-            <touchBarButton label="Btn 1" />
-            <touchBarButton label="Btn 2" />
-            <touchBarButton label="Btn 3" />
+            <touchBarSlider
+              label="Label"
+              value={0}
+              minValue={0}
+              maxValue={100}
+              onChange={(value: number) => console.log('Slider changed:', value)}
+              textColor="#f00"
+            />
           </touchBarGroup>
 
           <touchBarSpacer size="flexible" />

@@ -19,6 +19,7 @@ import TouchBarLabel from './TouchBar/TouchBarLabelElement';
 import TouchBarSpacer from './TouchBar/TouchBarSpacerElement';
 import TouchBarColorPicker from './TouchBar/TouchBarColorPickerElement';
 import TouchBarGroup from './TouchBar/TouchBarGroupElement';
+import TouchBarSlider from './TouchBar/TouchBarSliderElement';
 import TouchBarPopover from './TouchBar/TouchBarPopoverElement';
 
 export {
@@ -73,6 +74,9 @@ export function createElectronInstance(
     }
     case 'touchBarLabel': {
       return new TouchBarLabel(props, container);
+    }
+    case 'touchBarSlider': {
+      return new TouchBarSlider(props, container);
     }
     case 'touchBarSpacer': {
       return new TouchBarSpacer(props, container);
