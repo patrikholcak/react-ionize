@@ -17,7 +17,7 @@ export default function configureWrappedEventHandler(
 
   const changingHandler = (
     rawHandler !== undefined &&
-    attachedHandlers[rawEventKey] !== undefined && 
+    attachedHandlers[rawEventKey] !== undefined &&
     rawHandler !== attachedHandlers[rawEventKey]
   );
 

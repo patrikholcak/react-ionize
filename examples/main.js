@@ -11,12 +11,12 @@ class ExampleApp extends React.Component {
       show: false,
       size: [300, 300],
       position: [100, 100],
+      title: 'Click me!',
+      background: null
     };
   }
 
   render() {
-    console.log(this.state.size[0])
-
     return <app>
       <menu>
         <submenu label="Electron">
@@ -40,9 +40,23 @@ class ExampleApp extends React.Component {
         onResize={size => this.setState({ size })}
         onMoved={position => this.setState({ position })}
       >
-        <touchbar>
-          <touchbarbutton label="Foo the bars" onClick={() => this.setState({ size: [300, 300] })} />
-        </touchbar>
+        <touchBar>
+          <touchBarButton
+            label={this.state.title}
+            backgroundColor={this.state.background}
+            onClick={() => this.setState({ title: 'Clicked!' })}
+          />
+          <touchBarColorPicker
+            availableColors={["#fff", "#000"]}
+            selectedColor="#000"
+            onChange={(color: string) => console.log('Selected color:', color)}
+          />
+          <touchBarSpacer size="flexible" />
+          <touchBarLabel
+            label="Label"
+            textColor="red"
+          />
+        </touchBar>
       </window>
     </app>
   }

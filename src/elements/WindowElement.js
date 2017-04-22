@@ -4,6 +4,7 @@ import path from 'path';
 import { BrowserWindow } from 'electron';
 import BaseElement from './BaseElement';
 import TextElement from './TextElement';
+import TouchBarElement from './TouchBar/TouchBarElement';
 
 import type { ElectronApp } from 'electron';
 import type IonizeContainer from '../IonizeContainer';
@@ -262,9 +263,10 @@ export default class WindowElement extends BaseElement {
   appendChildBeforeMount(
     child         : (BaseElement | TextElement)
   ): void {
-    // if (child instanceof WindowElement) {
+    if (child instanceof WindowElement
+    ||  child instanceof TouchBarElement) {
       child.parentWindow = this.window;
-    // }
+    }
   }
 
   appendChild(

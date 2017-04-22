@@ -12,8 +12,12 @@ import {
   isRoleMenuItemType,
 } from './MenuItemElement';
 
-import TouchBarElement from './TouchBarElement';
-import TouchBarButton from './TouchBarItemElement';
+// TouchBar
+import TouchBarElement from './TouchBar/TouchBarElement';
+import TouchBarButton from './TouchBar/TouchBarButtonElement';
+import TouchBarLabel from './TouchBar/TouchBarLabelElement';
+import TouchBarSpacer from './TouchBar/TouchBarSpacerElement';
+import TouchBarColorPicker from './TouchBar/TouchBarColorPicker';
 
 export {
   BaseElement,
@@ -38,12 +42,6 @@ export function createElectronInstance(
     case 'window': {
       return new WindowElement(props, container);
     }
-    case 'touchbar': {
-      return new TouchBarElement(props, container);
-    }
-    case 'touchbarbutton': {
-      return new TouchBarButton(props, container);
-    }
     case 'menu': {
       return new MenuElement(props, container);
     }
@@ -55,6 +53,21 @@ export function createElectronInstance(
     }
     case 'item': {
       return new CustomMenuItemElement(props, container);
+    }
+    case 'touchBar': {
+      return new TouchBarElement(props, container);
+    }
+    case 'touchBarButton': {
+      return new TouchBarButton(props, container);
+    }
+    case 'touchBarColorPicker': {
+      return new TouchBarColorPicker(props, container);
+    }
+    case 'touchBarLabel': {
+      return new TouchBarLabel(props, container);
+    }
+    case 'touchBarSpacer': {
+      return new TouchBarSpacer(props, container);
     }
     default: {
       if (isRoleMenuItemType(type)) {

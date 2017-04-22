@@ -32,6 +32,7 @@ declare module 'electron' {
     setSize: (number, number, ?boolean) => void;
     getSize: () => [number, number];
     setResizable: (boolean) => void;
+    setTouchBar: (touchBar: TouchBar) => void;
   }
 
   declare class Menu {
@@ -40,6 +41,25 @@ declare module 'electron' {
   }
 
   declare class MenuItem {
+  }
+
+  declare class TouchBarItem {
+    constructor(options?: Object): void;
+  }
+
+  declare class TouchBar {
+    static TouchBarButton: typeof TouchBarItem;
+    static TouchBarColorPicker: typeof TouchBarItem;
+    static TouchBarGroup: typeof TouchBarItem;
+    static TouchBarLabel: typeof TouchBarItem;
+    static TouchBarPopover: typeof TouchBarItem;
+    static TouchBarScrubber: typeof TouchBarItem;
+    static TouchBarSegmentedControl: typeof TouchBarItem;
+    static TouchBarSlider: typeof TouchBarItem;
+    static TouchBarSpacer: typeof TouchBarItem;
+
+    constructor(items: Array<TouchBarItem>): void;
+    constructor(options: { items: Array<TouchBarItem>, escapeItem?: TouchBarItem }): void;
   }
 
   declare var ElectronTestUtils: {|
