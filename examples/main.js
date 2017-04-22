@@ -60,7 +60,6 @@ class ExampleApp extends React.Component {
               minValue={0}
               maxValue={100}
               onChange={(value: number) => console.log('Slider changed:', value)}
-              textColor="#f00"
             />
           </touchBarGroup>
 
