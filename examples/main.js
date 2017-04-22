@@ -47,7 +47,7 @@ class ExampleApp extends React.Component {
             onClick={() => this.setState({ title: 'Clicked!' })}
           />
 
-          <touchBarPopover label="Popover">
+          <touchBarPopover label="Popover" showCloseButton={false}>
             <touchBarButton label="Btn 1" />
             <touchBarButton label="Btn 2" />
             <touchBarButton label="Btn 3" />
@@ -59,18 +59,19 @@ class ExampleApp extends React.Component {
             <touchBarButton label="Btn 3" />
           </touchBarGroup>
 
-          <touchBarColorPicker
-            availableColors={["#fff", "#000"]}
-            selectedColor="#000"
-            onChange={(color: string) => console.log('Selected color:', color)}
-          />
-
           <touchBarSpacer size="flexible" />
 
           <touchBarLabel
             label="Label"
             textColor="red"
           />
+
+          <touchBarColorPicker
+            availableColors={["#fff", "#000"]}
+            selectedColor="#000"
+            onChange={(color: string) => console.log('Selected color:', color)}
+          />
+
         </touchBar>
       </window>
     </app>
