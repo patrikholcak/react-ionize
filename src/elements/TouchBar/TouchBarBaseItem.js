@@ -50,7 +50,7 @@ export default class TouchBarBaseItem extends BaseElement {
         'onChange',
         'change',
         props.onChange,
-        (rawHandler) => rawHandler()
+        (rawHandler, originalArgs) => rawHandler(...originalArgs)
       );
     }
     return false;
@@ -77,7 +77,7 @@ export default class TouchBarBaseItem extends BaseElement {
             prop,
             prop.replace(/^on/, '').toLowerCase(),
             propVal,
-            (rawHandler) => rawHandler()
+            (rawHandler, originalArgs) => rawHandler(...originalArgs)
           );
         default:
           // $FlowFixMe

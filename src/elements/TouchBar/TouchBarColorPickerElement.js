@@ -16,7 +16,7 @@ export default class TouchBarColorPickerElement extends TouchBarBaseItem {
     this.element = new TouchBarColorPicker({
       availableColors: props.availableColors,
       selectedColor: props.selectedColor,
-      change: props.onChange
+      change: (value) => this.emitter.emit('change', value)
     });
   }
 

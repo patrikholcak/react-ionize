@@ -18,9 +18,7 @@ export default class TouchBarButtonElement extends TouchBarBaseItem {
       backgroundColor: props.backgroundColor,
       icon: props.icon,
       iconPosition: props.icon,
-      click: (menuItem, browserWindow, event) => {
-        this.emitter.emit('click', event);
-      }
+      click: () => this.emitter.emit('click')
     });
   }
 
